@@ -1,0 +1,54 @@
+.contact {
+  position: relative;
+  padding: clamp(6rem, 14vw, 11rem) 0;
+  overflow: hidden;
+  border-radius: 40px 40px 0 0;
+  background: var(--dark);
+  color: var(--bg);
+  text-align: center;
+}
+
+.contact__inner {
+  position: relative;
+}
+
+.contact .eyebrow {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 35%, transparent), transparent 60%);
+  filter: blur(40px);
+  translate: -50% -50%;
+  animation: drift 14s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes drift {
+  to {
+    transform: translate(15%, -10%) scale(1.15);
+  }
+}
+
+.contact__title {
+  margin: 1rem 0 3rem;
+  font-size: clamp(4rem, 16vw, 13rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.contact__dot {
+  color: var(--accent-soft);
+}
+
+.contact__note {
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}

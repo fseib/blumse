@@ -1,0 +1,129 @@
+.header {
+  position: fixed;
+  top: 1rem;
+  right: 0;
+  left: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+  pointer-events: none;
+}
+
+.header__pill {
+  display: flex;
+  /* Alinea por la línea base del texto: el logo usa otra tipografía y,
+     centrado, queda más bajo que los links del menú */
+  align-items: baseline;
+  gap: 2rem;
+  padding: 0.45rem 0.45rem 0.45rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 75%, transparent);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(16px) saturate(180%);
+  pointer-events: auto;
+  animation: fade-down 1s var(--ease-out) both;
+}
+
+.header__logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+
+.header_font {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.header__nav {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.header__nav a {
+  position: relative;
+  transition: color 0.3s;
+}
+
+.header__nav a::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.header__nav a:hover {
+  color: var(--text);
+}
+
+.header__nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.header__cta {
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  background: var(--brand);
+  color: var(--bg);
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.header__cta:hover {
+  background: var(--accent);
+}
+
+/* Barra de progreso de lectura (CSS scroll-driven animations) */
+.progress {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 60;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@supports (animation-timeline: scroll()) {
+  .progress {
+    animation: progress linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .header__pill {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .header__nav {
+    display: none;
+  }
+}

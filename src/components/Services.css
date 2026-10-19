@@ -1,0 +1,235 @@
+.bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.bento__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: 340px;
+  padding: 2rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.bento__item--wide {
+  grid-column: span 2;
+}
+
+.bento__title {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.bento__text {
+  max-width: 26rem;
+  color: var(--muted);
+}
+
+.spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(400px circle at var(--x, 50%) var(--y, 50%), color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* Demo: caja que cambia de ancho y su contenido se reacomoda */
+.demo-resize__frame {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  border: 1.5px dashed rgba(33, 33, 33, 0.2);
+  border-radius: 14px;
+  animation: resize 7s var(--ease-out) infinite;
+}
+
+.demo-resize__frame span {
+  flex: 1 1 90px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--beige);
+}
+
+.demo-resize__frame span:first-child {
+  flex-basis: 100%;
+  height: 56px;
+  background: var(--accent);
+  opacity: 0.85;
+}
+
+@keyframes resize {
+  0%,
+  15% {
+    width: 100%;
+  }
+  45%,
+  65% {
+    width: 38%;
+  }
+  95%,
+  100% {
+    width: 100%;
+  }
+}
+
+/* Demo: anillo de puntaje */
+.ring {
+  position: relative;
+  width: 130px;
+  height: 130px;
+}
+
+.ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring circle {
+  fill: none;
+  stroke-width: 8;
+}
+
+.ring__track {
+  stroke: var(--beige);
+}
+
+.ring__value {
+  stroke: var(--accent);
+  stroke-linecap: round;
+}
+
+.ring__number {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+/* Demo: forma que se transforma */
+.demo-blob {
+  width: 130px;
+  height: 130px;
+  background: linear-gradient(135deg, var(--accent), var(--sand) 50%, var(--petrol));
+  animation: blob 8s ease-in-out infinite;
+}
+
+@keyframes blob {
+  0%,
+  100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    rotate: 0deg;
+  }
+  33% {
+    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+  }
+  66% {
+    border-radius: 28% 72% 30% 70% / 63% 36% 64% 37%;
+    rotate: 180deg;
+  }
+}
+
+/* Demo: búsqueda que se escribe sola */
+.demo-search {
+  display: grid;
+  gap: 1rem;
+  max-width: 460px;
+}
+
+.demo-search__bar {
+  padding: 0.75rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--beige);
+}
+
+.demo-search__query {
+  display: inline-block;
+  width: 0;
+  max-width: max-content;
+  overflow: hidden;
+  border-right: 2px solid var(--text);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  vertical-align: bottom;
+  animation:
+    typing 5s steps(27) infinite,
+    caret 0.8s step-end infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  50%,
+  100% {
+    width: 27ch;
+  }
+}
+
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.demo-search__result {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: var(--beige);
+}
+
+.demo-search__result small {
+  color: var(--muted);
+}
+
+.demo-search__result strong {
+  color: var(--accent-strong);
+  font-weight: 500;
+}
+
+.demo-search__result i {
+  display: block;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(33, 33, 33, 0.1);
+}
+
+.demo-search__result i:last-child {
+  width: 65%;
+}
+
+@media (max-width: 900px) {
+  .bento {
+    grid-template-columns: 1fr;
+  }
+
+  .bento__item--wide {
+    grid-column: auto;
+  }
+
+  .bento__item {
+    min-height: 280px;
+  }
+}

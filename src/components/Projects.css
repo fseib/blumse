@@ -1,0 +1,144 @@
+.projects__hint {
+  max-width: 18rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (hover: none) {
+  .projects__hint {
+    display: none;
+  }
+}
+
+.projects__list {
+  display: grid;
+  gap: clamp(5rem, 10vw, 9rem);
+}
+
+.showcase {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+/* En los pares el texto va a la derecha: se invierten también los anchos */
+.showcase:nth-child(even) {
+  grid-template-columns: 1.5fr 1fr;
+}
+
+.showcase:nth-child(even) .showcase__info {
+  order: 2;
+}
+
+.showcase__index {
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.showcase__title {
+  margin: 0.5rem 0 1rem;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+.showcase__meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.showcase__meta span + span::before {
+  content: '·';
+  margin-right: 1rem;
+}
+
+.showcase__desc {
+  max-width: 28rem;
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.showcase__link {
+  display: inline-flex;
+  gap: 0.4rem;
+  padding-bottom: 2px;
+  border-bottom: 1px solid currentColor;
+  font-weight: 500;
+}
+
+.showcase__link:hover .button__arrow {
+  transform: translate(3px, -3px);
+}
+
+.showcase__soon {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Escenario con navegador + celular superpuestos */
+.showcase__stage {
+  position: relative;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  padding-right: clamp(5rem, 13vw, 10rem);
+  overflow: hidden;
+  border-radius: 28px;
+  background: var(--stage-bg);
+}
+
+.showcase__browser,
+.showcase__phone {
+  transition: transform 0.9s var(--ease-out);
+}
+
+.showcase__phone {
+  position: absolute;
+  right: clamp(1rem, 3vw, 2.5rem);
+  bottom: -10%;
+}
+
+.showcase__phone .phone {
+  --phone-w: clamp(110px, 15vw, 190px);
+}
+
+.showcase:hover .showcase__browser {
+  transform: scale(0.98);
+}
+
+.showcase:hover .showcase__phone {
+  transform: translateY(-7%) rotate(-3deg);
+}
+
+@media (max-width: 900px) {
+  .showcase,
+  .showcase:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase:nth-child(even) .showcase__info {
+    order: 0;
+  }
+
+  .showcase__phone .phone {
+    --phone-w: clamp(100px, 26vw, 170px);
+  }
+}

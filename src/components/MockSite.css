@@ -1,0 +1,237 @@
+.mock {
+  min-height: 100cqh;
+  background: var(--m-bg);
+  color: var(--m-fg);
+  font-size: clamp(8px, 3.4cqi, 11px);
+  line-height: 1.4;
+}
+
+.mock__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4.2em 1.6em 1.2em;
+}
+
+.mock__logo {
+  font-size: 1.2em;
+  letter-spacing: -0.03em;
+}
+
+.mock__links {
+  display: none;
+  gap: 2em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  opacity: 0.7;
+}
+
+.mock__burger {
+  display: grid;
+  gap: 0.35em;
+}
+
+.mock__burger i {
+  display: block;
+  width: 1.6em;
+  height: 0.15em;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+.mock__hero {
+  display: grid;
+  gap: 2em;
+  padding: 2em 1.6em;
+}
+
+.mock__eyebrow {
+  display: inline-block;
+  margin-bottom: 1em;
+  padding: 0.3em 0.8em;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--m-accent) 18%, transparent);
+  color: var(--m-accent);
+  font-size: 0.75em;
+  font-weight: 600;
+}
+
+.mock__title {
+  margin-bottom: 0.6em;
+  font-size: 2.6em;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.mock__lines {
+  display: grid;
+  gap: 0.5em;
+  margin-bottom: 1.6em;
+}
+
+.mock__lines i {
+  display: block;
+  height: 0.55em;
+  border-radius: 4px;
+  background: currentColor;
+  opacity: 0.12;
+}
+
+.mock__lines i:last-child {
+  width: 70%;
+}
+
+.mock__button {
+  display: inline-block;
+  padding: 0.8em 1.4em;
+  border-radius: 999px;
+  background: var(--m-accent);
+  color: var(--m-bg);
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.mock__image {
+  aspect-ratio: 4 / 3;
+  border-radius: 1.2em;
+  background:
+    radial-gradient(circle at 70% 30%, color-mix(in srgb, var(--m-accent) 40%, white) 0 18%, transparent 19%),
+    linear-gradient(160deg, var(--m-accent), color-mix(in srgb, var(--m-accent) 55%, black));
+}
+
+.mock__cards {
+  display: grid;
+  gap: 1em;
+  padding: 1em 1.6em 2em;
+}
+
+.mock__card {
+  padding: 1.4em 1.4em 0.2em;
+  border-radius: 1em;
+  background: color-mix(in srgb, var(--m-fg) 6%, transparent);
+}
+
+.mock__icon {
+  display: block;
+  width: 2.2em;
+  height: 2.2em;
+  margin-bottom: 1em;
+  border-radius: 0.6em;
+  background: var(--m-accent);
+}
+
+.mock__card b {
+  display: block;
+  width: 60%;
+  height: 0.8em;
+  margin-bottom: 0.8em;
+  border-radius: 4px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+.mock__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6em;
+  padding: 0 1.6em 2em;
+}
+
+.mock__gallery span {
+  aspect-ratio: 1;
+  border-radius: 0.8em;
+  background: var(--m-accent);
+  opacity: 0.25;
+}
+
+.mock__gallery span:nth-child(3n + 1) {
+  opacity: 0.6;
+}
+
+.mock__gallery span:nth-child(4n) {
+  opacity: 0.4;
+}
+
+.mock__quote {
+  padding: 2em 1.6em;
+  font-size: 1.4em;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.mock__cta {
+  margin: 0 1.6em 2em;
+  padding: 2.4em 1.6em;
+  border-radius: 1.4em;
+  background: var(--m-fg);
+  color: var(--m-bg);
+  text-align: center;
+}
+
+.mock__cta h5 {
+  margin: 0 0 1em;
+  font-size: 1.8em;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.mock__footer {
+  padding: 1.5em 1.6em 3em;
+  font-size: 0.85em;
+  opacity: 0.5;
+}
+
+/* Versión desktop: dentro del navegador se ve siempre como escritorio, a escala */
+@container browser (min-width: 0px) {
+  .mock {
+    font-size: 1.85cqi;
+  }
+
+  .mock__nav {
+    padding: 1.4em 3em;
+  }
+
+  .mock__links {
+    display: flex;
+  }
+
+  .mock__burger {
+    display: none;
+  }
+
+  .mock__hero {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    padding: 3em;
+  }
+
+  .mock__title {
+    font-size: 3.4em;
+  }
+
+  .mock__cards {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1em 3em 3em;
+  }
+
+  .mock__gallery {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 3em 3em;
+  }
+
+  .mock__quote {
+    padding: 3em;
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .mock__cta {
+    margin: 0 3em 3em;
+  }
+
+  .mock__footer {
+    padding: 1.5em 3em;
+  }
+}
