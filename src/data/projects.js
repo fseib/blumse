@@ -7,10 +7,12 @@
 //   Si faltan, se muestra un sitio de ejemplo con los colores de `theme`.
 // - `images.hero`: captura de la primera pantalla en celular, para el celular que
 //   rota los proyectos al principio de la página (si falta, se usa `images.mobile`).
+// - `statusBar`: color de la parte de arriba del sitio. Pinta la franja de la barra de
+//   estado del celular, que deja el contenido debajo del notch.
 export const projects = [
   {
     id: 'gym',
-    title: 'El Kaiser Gym',
+    title: 'Forja Gym',
     category: 'Gimnasio',
     year: '2026',
     description:
@@ -23,6 +25,7 @@ export const projects = [
       mobile: '/projects/gym-mobile.png',
       hero: '/projects/gym-hero.jpg',
     },
+    statusBar: '#121212',
     theme: {
       bg: '#505050',
       fg: '#2e2522',
@@ -47,6 +50,7 @@ export const projects = [
       mobile: '/projects/pilates-mobile.png',
       hero: '/projects/pilates-hero.jpg',
     },
+    statusBar: '#ece5f9',
     theme: {
       bg: '#1f1e1b',
       fg: '#efe9df',
@@ -71,6 +75,7 @@ export const projects = [
       mobile: '/projects/estetica-mobile.png',
       hero: '/projects/estetica-hero.jpg',
     },
+    statusBar: '#f7f2ec',
     theme: {
       bg: '#eef5f3',
       fg: '#0f3b37',

@@ -210,7 +210,7 @@
 /* Proyectos que rotan dentro del celular */
 .hero__slides {
   position: relative;
-  height: 100cqh;
+  height: calc(100cqh - var(--status-bar-h));
 }
 
 .hero__slide {

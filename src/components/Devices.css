@@ -18,8 +18,16 @@
   height: 100%;
   overflow: hidden;
   border-radius: calc(var(--phone-w) * 0.135);
-  background: var(--surface);
+  background: var(--status-bar, var(--surface));
   container: phone / size;
+  transition: background-color 0.8s;
+  --status-bar-h: 13cqw;
+}
+
+/* Franja de la barra de estado: el contenido arranca debajo del notch, como en
+   un celular real. Al recorrerse, pasa por detrás. */
+.phone .screen-scroller {
+  padding-top: var(--status-bar-h);
 }
 
 /* Reflejo del vidrio */

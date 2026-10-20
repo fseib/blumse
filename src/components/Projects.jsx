@@ -56,7 +56,7 @@ export default function Projects() {
                   </Browser>
                 </div>
                 <div className="showcase__phone">
-                  <Phone>
+                  <Phone statusBar={project.statusBar}>
                     <ProjectScreen project={project} variant="mobile" />
                   </Phone>
                 </div>

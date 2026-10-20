@@ -108,7 +108,7 @@ export default function Hero() {
         <div className="hero__device">
           <div className="hero__tilt">
             <div className="hero__float">
-              <Phone scroll="none">
+              <Phone scroll="none" statusBar={slides[slideIndex]?.project.statusBar}>
                 <div className="hero__slides">
                   {slides.map(({ project, image }, i) => (
                     <img

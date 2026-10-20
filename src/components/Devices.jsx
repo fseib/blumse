@@ -1,9 +1,10 @@
 import './Devices.css'
 
 // `scroll`: 'auto' recorre la pantalla sola, 'none' la deja quieta.
-export function Phone({ scroll = 'auto', children }) {
+// `statusBar`: color de la franja de arriba, donde está el notch.
+export function Phone({ scroll = 'auto', statusBar, children }) {
   return (
-    <div className="phone">
+    <div className="phone" style={{ '--status-bar': statusBar }}>
       <div className="phone__screen">
         <div className="phone__island" />
         <div className={`screen-scroller screen-scroller--${scroll}`}>{children}</div>
